@@ -190,7 +190,15 @@ class TestUniswap(object):
         r = client.get_price_output(token0, token1, qty, **kwargs)
         assert r
 
-    @pytest.mark.parametrize("token0, token1, fee", [("DAI", "USDC", 500)])
+    @pytest.mark.parametrize(
+        "token0, token1, fee",
+        [
+            ("DAI", "USDC", 500),
+            ("DAI", "USDC", None),
+            ("ETH", "USDC", 500),
+            ("USDC", "ETH", 500),
+        ]
+    )
     def test_get_raw_price(self, client: Uniswap, tokens, token0, token1, fee):
         token0, token1 = tokens[token0], tokens[token1]
         if client.version == 1:
