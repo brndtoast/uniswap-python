@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Command line interface &#8212; uniswap-python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="API Reference" href="api.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">uniswap-python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting-started.html">
+   Getting started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="examples.html">
+   Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supported-deployments.html">
+   Supported deployments
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            
+    <p>
+        Back to <a href="https://github.com/shanefontaine/uniswap-python">GitHub</a>
+    </p>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/shanefontaine/uniswap-python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/shanefontaine/uniswap-python/edit/master/docs/cli.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/cli.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-usage">
+   Example usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unipy">
+     unipy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unipy-price">
+       price
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unipy-token">
+       token
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unipy-tokendb">
+       tokendb
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Command line interface</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-usage">
+   Example usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unipy">
+     unipy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unipy-price">
+       price
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unipy-token">
+       token
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unipy-tokendb">
+       tokendb
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="command-line-interface">
+<h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">#</a></h1>
+<p>uniswap-python provides a basic command line interface named <code class="docutils literal notranslate"><span class="pre">unipy</span></code>, to let you easier query the chain for things like the current price and token metadata.</p>
+<section id="example-usage">
+<h2>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">#</a></h2>
+<p><strong>Note:</strong> uniswap-python contains a small database of token contract addresses for convenience. You can always provide a contract address in place of a shorthand, and need to do so for all tokens not in the bundled database, or if you’re not on mainnet.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get price for 1 WETH quoted in DAI</span>
+$ unipy price WETH DAI
+<span class="m">3350</span>.883387688622
+
+<span class="c1"># Get price for 1 WETH quoted in DAI, skip decimal normalization</span>
+$ unipy price --raw WETH DAI
+<span class="m">3350883387688622003541</span>
+
+<span class="c1"># Get price for 1 WETH quoted in USDT</span>
+$ unipy price WETH 0xdac17f958d2ee523a2206206994597c13d831ec7
+<span class="m">3348</span>.128969
+
+<span class="c1"># Get token metadata from its ERC20 contract</span>
+$ unipy token 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;Wrapped Ether&#39;</span>, <span class="s1">&#39;symbol&#39;</span>: <span class="s1">&#39;WETH&#39;</span>, <span class="s1">&#39;decimals&#39;</span>: <span class="m">18</span><span class="o">}</span>
+
+<span class="c1"># List known/hardcoded tokens, with metadata</span>
+$ unipy tokendb --metadata
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;Wrapped Ether&#39;</span>, <span class="s1">&#39;symbol&#39;</span>: <span class="s1">&#39;WETH&#39;</span>, <span class="s1">&#39;decimals&#39;</span>: <span class="m">18</span><span class="o">}</span>
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;Dai Stablecoin&#39;</span>, <span class="s1">&#39;symbol&#39;</span>: <span class="s1">&#39;DAI&#39;</span>, <span class="s1">&#39;decimals&#39;</span>: <span class="m">18</span><span class="o">}</span>
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;Wrapped BTC&#39;</span>, <span class="s1">&#39;symbol&#39;</span>: <span class="s1">&#39;WBTC&#39;</span>, <span class="s1">&#39;decimals&#39;</span>: <span class="m">8</span><span class="o">}</span>
+...
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">#</a></h2>
+<section id="unipy">
+<h3>unipy<a class="headerlink" href="#unipy" title="Permalink to this headline">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>unipy <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-v">
+<span id="cmdoption-unipy-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-unipy-v" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-version">
+<span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;version&gt;</span></span><a class="headerlink" href="#cmdoption-unipy-version" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>1 | 2 | 3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="unipy-price">
+<h4>price<a class="headerlink" href="#unipy-price" title="Permalink to this headline">#</a></h4>
+<p>Returns the price of <code class="docutils literal notranslate"><span class="pre">quantity</span></code> tokens of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> quoted in <code class="docutils literal notranslate"><span class="pre">token_out</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>unipy price <span class="o">[</span>OPTIONS<span class="o">]</span> TOKEN_IN TOKEN_OUT
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-price-raw">
+<span class="sig-name descname"><span class="pre">--raw</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-unipy-price-raw" title="Permalink to this definition">#</a></dt>
+<dd><p>Don’t normalize the quoted price to the output token’s decimals</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-price-quantity">
+<span class="sig-name descname"><span class="pre">--quantity</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;quantity&gt;</span></span><a class="headerlink" href="#cmdoption-unipy-price-quantity" title="Permalink to this definition">#</a></dt>
+<dd><p>Quantity of output tokens to get price of. Falls back to one full unit of the input token by default (10**18 for WETH, for example).</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-price-arg-TOKEN_IN">
+<span id="cmdoption-unipy-price-arg-token-in"></span><span class="sig-name descname"><span class="pre">TOKEN_IN</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-unipy-price-arg-TOKEN_IN" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-price-arg-TOKEN_OUT">
+<span id="cmdoption-unipy-price-arg-token-out"></span><span class="sig-name descname"><span class="pre">TOKEN_OUT</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-unipy-price-arg-TOKEN_OUT" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="unipy-token">
+<h4>token<a class="headerlink" href="#unipy-token" title="Permalink to this headline">#</a></h4>
+<p>Show metadata for token</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>unipy token <span class="o">[</span>OPTIONS<span class="o">]</span> TOKEN
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-token-arg-TOKEN">
+<span id="cmdoption-unipy-token-arg-token"></span><span class="sig-name descname"><span class="pre">TOKEN</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-unipy-token-arg-TOKEN" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="unipy-tokendb">
+<h4>tokendb<a class="headerlink" href="#unipy-tokendb" title="Permalink to this headline">#</a></h4>
+<p>List known token addresses</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>unipy tokendb <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-unipy-tokendb-metadata">
+<span class="sig-name descname"><span class="pre">--metadata</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-unipy-tokendb-metadata" title="Permalink to this definition">#</a></dt>
+<dd><p>Also get metadata for tokens</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="api.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">API Reference</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="examples.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Shane Fontaine, Erik Bjäreholt, and contributors<br/>
+  
+      &copy; Copyright 2021, Shane Fontaine, Erik Bjäreholt, and contributors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
